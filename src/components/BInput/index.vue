@@ -1,9 +1,9 @@
 <template>
   <div v-if="showCounter && maxlength !== undefined" :class="[{ 'BInput-focus': focus, 'BInput-show-counter': showCounter }]">
-    <a-input v-bind="$attrs" v-on="counterInputListeners" :value="value" :maxlength="maxlength"></a-input>
+    <a-input v-bind="$attrs" v-on="inputListeners" :value="value" :maxlength="maxlength"></a-input>
     <div class="BInput-counter">{{ count }}/{{ maxlength }}</div>
   </div>
-  <a-input v-else v-bind="$attrs" v-on="$listeners" :value="value" :maxlength="maxlength"></a-input>
+  <a-input v-else v-bind="$attrs" v-on="inputListeners" :value="value" :maxlength="maxlength"></a-input>
 </template>
 <script>
 export default {
@@ -30,24 +30,40 @@ export default {
     },
   },
   computed: {
-    counterInputListeners: function () {
-      return {
+    inputListeners: function () {
+      let listeners = {
         ...this.$listeners,
-        focus: e => {
-          this.focus = true
-          this.$emit('focus', e)
-        },
-        blur: e => {
-          this.focus = false
-          this.$emit('blur', e)
+        input: e => {
+          this.$emit('input', e.target.value)
         },
       }
-    }
+      if (this.showCounter) {
+        listeners = {
+          ...listeners,
+          focus: e => {
+            this.focus = true
+            this.$emit('focus', e)
+          },
+          blur: e => {
+            this.focus = false
+            this.$emit('blur', e)
+          },
+        }
+      }
+      return listeners
+    },
   },
   methods: {},
 }
 </script>
 <style lang="less">
+  .has-error .BInput-show-counter, .has-error .BInput-show-counter:hover {
+    border-color: #f5222d;
+  }
+  .has-error .BInput-show-counter.BInput-focus {
+    border-color: #ff4d4f;
+    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.2);
+  }
   .BInput-show-counter {
       position: relative;
       padding-right: 42px;
@@ -55,7 +71,9 @@ export default {
       border-radius: 4px;
       height: 32px;
       line-height: 32px;
-      margin: 3px 0;
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
     &.BInput-focus {
       border-color: #7088ff;
       box-shadow: 0 0 0 2px rgba(72, 96, 255, 0.2);
@@ -76,6 +94,8 @@ export default {
       border: none;
       background: transparent;
       height: 30px;
+      position: relative;
+      top: -1px;
     }
   }
 </style>
