@@ -57,7 +57,7 @@ export default {
 }
 </script>
 <style lang="less">
-  .has-error .BInput-show-counter, .has-error .BInput-show-counter:hover {
+  .has-error .BInput-show-counter {
     border-color: #f5222d;
   }
   .has-error .BInput-show-counter.BInput-focus {

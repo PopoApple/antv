@@ -56,7 +56,7 @@ export default {
 }
 </script>
 <style lang="less">
-  .has-error .BTextarea-show-counter, .has-error .BTextarea-show-counter:hover {
+  .has-error .BTextarea-show-counter {
     border-color: #f5222d;
   }
   .has-error .BTextarea-show-counter.BTextarea-focus {

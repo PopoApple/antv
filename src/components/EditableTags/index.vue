@@ -90,6 +90,9 @@ export default {
   }
 </script>
 <style lang="less">
+  .has-error .EditableTags {
+    border-color: #f5222d;
+  }
   .EditableTags {
     border: 1px solid #D9D9D9;
     border-radius: 4px;

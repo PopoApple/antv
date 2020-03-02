@@ -68,13 +68,18 @@
 <script src="./index.js"></script>
 <style lang="less">
     .content-manage-edit-form {
-        margin-left: 10px;
-        .ant-form-item-label {
-            text-align: left;
+      margin-left: 10px;
+      .ant-form-item-label {
+          text-align: left;
+      }
+      .ant-upload.ant-upload-drag .ant-upload {
+        padding: 12px 0;
+      }
+      .has-error {
+        .ant-upload.ant-upload-drag {
+          border-color: #f5222d;
         }
-        .ant-upload.ant-upload-drag .ant-upload {
-          padding: 12px 0;
-        }
+      }
     }
 </style>
 <style lang="less" scoped>

@@ -1,64 +1,65 @@
 .dropbox {
-    height: 122px;
-    line-height: 1.5;
+  height: 122px;
+  line-height: 1.5;
+  margin: 3px 0;
+}
+.upload-icon {
+  text-align: center;
+  margin-bottom: 4px;
+  .anticon {
+    color: #888;
+    font-size: 30px;
   }
-  .upload-icon {
-    text-align: center;
-    margin-bottom: 4px;
-    .anticon {
-      color: #888;
-      font-size: 30px;
-    }
-  }
-  .upload-text {
-    text-align: center;
-    margin: 0 0 2px;
-    color: #4A4A4A;
-    font-size: 14px;
-  }
-  .upload-hint {
-    text-align: center;
-    color: #BFBFBF; 
+}
+.upload-text {
+  text-align: center;
+  margin: 0 0 2px;
+  color: #4A4A4A;
+  font-size: 14px;
+}
+.upload-hint {
+  text-align: center;
+  color: #BFBFBF; 
+  font-size: 12px;
+}
+.file-wrap {
+    margin-top: 15px;
+    padding-left: 4px;
+  .file-item {
+    overflow: hidden;
     font-size: 12px;
-  }
-  .file-wrap {
-      margin-top: 15px;
-      padding-left: 4px;
-    .file-item {
-      overflow: hidden;
-      font-size: 12px;
-      line-height: 14px;
-      padding: 5px 0;
-      .file-icon {
-        float: left;
-        width: 14px;
-        height: 14px;
-        background: url(../assets/audio.png) no-repeat;
-        margin-right: 8px;
+    line-height: 14px;
+    padding: 5px 0;
+    .file-icon {
+      float: left;
+      width: 14px;
+      height: 14px;
+      background: url(../assets/audio.png) no-repeat;
+      margin-right: 8px;
+    }
+    .file-name {
+      float: left;
+      color: #4A4A4A;
+    }
+    .file-progress {
+      float: right;
+      color: #BFBFBF; 
+      margin-right: 8px;
+    }
+    .file-btn {
+      float: right;
+      width: 14px;
+      height: 14px;
+      background-repeat: no-repeat;
+      &.file-btn-done {
+          background-image: url(../assets/success.png);
       }
-      .file-name {
-        float: left;
-        color: #4A4A4A;
+      &.file-btn-uploading {
+          background-image: url(../assets/close.png);
       }
-      .file-progress {
-        float: right;
-        color: #BFBFBF; 
-        margin-right: 8px;
-      }
-      .file-btn {
-        float: right;
-        width: 14px;
-        height: 14px;
-        background-repeat: no-repeat;
-        &.file-btn-done {
-            background-image: url(../assets/success.png);
-        }
-        &.file-btn-uploading {
-            background-image: url(../assets/close.png);
-        }
-        &.file-btn-error {
-            background-image: url(../assets/refresh.png);
-        }
+      &.file-btn-error {
+          background-image: url(../assets/refresh.png);
       }
     }
   }
+}

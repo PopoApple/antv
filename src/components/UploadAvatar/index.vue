@@ -55,6 +55,11 @@
   };
 </script>
 <style lang="less">
+  .has-error .UploadAvatar {
+    .ant-upload.ant-upload-select-picture-card {
+      border-color: #f5222d;
+    }
+  }
   .UploadAvatar {
     &.UploadAvatar-has-img {
       .ant-upload.ant-upload-select-picture-card {
