@@ -1,9 +1,9 @@
 <template>
   <div v-if="showCounter && maxlength !== undefined" :class="[{ 'BTextarea-focus': focus, 'BTextarea-show-counter': showCounter }]">
-    <a-textarea v-bind="$attrs" v-on="counterTextarealisteners" :maxlength="maxlength" :value="value"></a-textarea>
+    <a-textarea v-bind="$attrs" v-on="inputListeners" :maxlength="maxlength" :value="value"></a-textarea>
     <div class="BTextarea-counter">{{ count }}/{{ maxlength }}</div>
   </div>
-  <a-textarea v-else v-bind="$attrs" v-on="$listeners" :maxlength="maxlength" :value="value"></a-textarea>
+  <a-textarea v-else v-bind="$attrs" v-on="inputListeners" :maxlength="maxlength" :value="value"></a-textarea>
 </template>
 <script>
 export default {
@@ -29,24 +29,40 @@ export default {
   created() {},
   mounted() {},
   computed: {
-    counterTextarealisteners: function () {
-      return {
+    inputListeners: function () {
+      let listeners = {
         ...this.$listeners,
-        focus: e => {
-          this.focus = true
-          this.$emit('focus', e)
-        },
-        blur: e => {
-          this.focus = false
-          this.$emit('blur', e)
+        input: e => {
+          this.$emit('input', e.target.value)
         },
       }
-    }
+      if (this.showCounter) {
+        listeners = {
+          ...listeners,
+          focus: e => {
+            this.focus = true
+            this.$emit('focus', e)
+          },
+          blur: e => {
+            this.focus = false
+            this.$emit('blur', e)
+          },
+        }
+      }
+      return listeners
+    },
   },
   methods: {},
 }
 </script>
 <style lang="less">
+  .has-error .BTextarea-show-counter, .has-error .BTextarea-show-counter:hover {
+    border-color: #f5222d;
+  }
+  .has-error .BTextarea-show-counter.BTextarea-focus {
+    border-color: #ff4d4f;
+    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.2);
+  }
   .BTextarea-show-counter {
     position: relative;
     padding-bottom: 28px;
