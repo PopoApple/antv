@@ -86,7 +86,6 @@ export default {
     font-size: 18px;
     color: #FFFFFF;
     background: #002766 url('../../common/image/sider/telecom-icon.png') 28px 17px no-repeat;
-    transition: background-position-x 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
   .title {
     transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -133,9 +132,6 @@ export default {
     }
   }
   &.ant-layout-sider-collapsed {
-    .logo {
-      background-position-x: 24px;
-    }
     .title {
       opacity: 0;
     }
